@@ -201,5 +201,3 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
     </div>
   );
 };
-
-console.log(typeof null);
