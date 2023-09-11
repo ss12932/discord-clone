@@ -20,7 +20,7 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
         <Image fill src={value} alt="Upload" className="rounded-full" />
         <button
           onClick={() => onChange("")}
-          className="bg-rose-500 text-white p-1 rounded-full absolute top-0 right-0 shadow-sm"
+          className="absolute right-0 top-0 rounded-full bg-rose-500 p-1 text-white shadow-sm"
           type="button"
         >
           <X className="h-4 w-4" />
@@ -28,15 +28,19 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
       </div>
     );
   }
-  return (
-    <UploadDropzone
-      endpoint={endpoint}
-      onClientUploadComplete={(res) => {
-        onChange(res?.[0].url);
-      }}
-      onUploadError={(err: Error) => {
-        console.log(err);
-      }}
-    />
-  );
+
+  if (value && fileType === "pdf" {
+    
+  })
+    return (
+      <UploadDropzone
+        endpoint={endpoint}
+        onClientUploadComplete={(res) => {
+          onChange(res?.[0].url);
+        }}
+        onUploadError={(err: Error) => {
+          console.log(err);
+        }}
+      />
+    );
 };
