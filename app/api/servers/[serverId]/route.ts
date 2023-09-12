@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { serverId: string } }
+  { params }: { params: { serverId: string } },
 ) {
   try {
     const profile = await currentProfile();
@@ -34,7 +34,7 @@ export async function PATCH(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { serverId: string } }
+  { params }: { params: { serverId: string } },
 ) {
   try {
     const profile = await currentProfile();
@@ -43,7 +43,7 @@ export async function DELETE(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const server = await db.server.deleteMany({
+    const server = await db.server.delete({
       where: {
         id: params.serverId,
         profileId: profile.id,
